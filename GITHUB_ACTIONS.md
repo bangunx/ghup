@@ -67,6 +67,38 @@ git push origin v1.0.0
 # Choose if pre-release: false/true
 ```
 
+### 4. 🚢 npm Publish Workflow (`.github/workflows/publish-npm.yml`)
+
+**Triggers:**
+- Push to `main` when the [`VERSION`](VERSION) file changes
+- Manual trigger from the Actions tab (optional version override)
+
+**What it does:**
+- Reads the intended release number from `VERSION` (or manual input)
+- Synchronises `package.json`, `src/cli.ts`, and `VERSION`
+- Installs dependencies with Bun and builds the project
+- Publishes the package to npm using `NPM_TOKEN`
+
+**Usage:**
+```bash
+# Automated path
+# 1. Update VERSION file (e.g., echo "1.3.0" > VERSION)
+# 2. Commit & push to main
+
+git add VERSION
+git commit -m "chore: release 1.3.0"
+git push origin main
+
+# Manual trigger
+# Go to GitHub → Actions → Publish ghup to npm → Run workflow
+# (Optional) supply a version override
+```
+
+**Requirements:**
+- Repository secret `NPM_TOKEN` with publish access to the `ghup` package
+- `VERSION` file containing a valid semver value (e.g., `1.3.0`)
+
+
 ## 🎯 Release Process Options
 
 ### Option 1: Automated Release (Recommended)
