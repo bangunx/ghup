@@ -86,13 +86,19 @@ jobs:
 
           const cliPath = 'src/cli.ts';
           const cli = fs.readFileSync(cliPath, 'utf8');
-          const updatedCli = cli.replace(/const PACKAGE_VERSION = \"[^\"]+\";/, `const PACKAGE_VERSION = "${version}";`);
-          if (updatedCli === cli) {
-            console.error('Failed to update src/cli.ts with the new version.');
+          const versionPattern = /const PACKAGE_VERSION = \"([^\"]+)\";/;
+          const match = versionPattern.exec(cli);
+          if (!match) {
+            console.error('Could not find PACKAGE_VERSION declaration in src/cli.ts');
             process.exit(1);
           }
-          fs.writeFileSync(cliPath, updatedCli);
-          console.log(`Updated ${cliPath} to ${version}`);
+          if (match[1] === version) {
+            console.log(`${cliPath} already at ${version}`);
+          } else {
+            const updatedCli = cli.replace(versionPattern, `const PACKAGE_VERSION = "${version}";`);
+            fs.writeFileSync(cliPath, updatedCli);
+            console.log(`Updated ${cliPath} to ${version}`);
+          }
 
           const versionPath = 'VERSION';
           const currentVersionFile = fs.existsSync(versionPath) ? fs.readFileSync(versionPath, 'utf8').trim() : '';
