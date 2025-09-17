@@ -12,6 +12,7 @@ import {
   showWarning,
   colors 
 } from "./utils/ui";
+import { ensureGithubCli, manageGithubCliFlow } from "./utils/githubCli";
 
 // Get version from package.json
 const PACKAGE_VERSION = "1.2.1";
@@ -64,7 +65,9 @@ export async function main() {
   
   // Show beautiful title
   showTitle();
-  
+
+  await ensureGithubCli({ promptInstall: false, promptLogin: false });
+
   const cfg = loadConfig();
   
   while (true) {
@@ -121,6 +124,11 @@ export async function main() {
           description: "Verify account authentication"
         },
         { 
+          title: colors.accent("☁ Kelola GitHub CLI"), 
+          value: "githubcli",
+          description: "Instal, cek status, login, dan lihat panduan perintah"
+        },
+        { 
           title: colors.muted("🚪 Exit"), 
           value: "exit",
           description: "Close the application"
@@ -171,6 +179,9 @@ export async function main() {
       if (action === "globalssh") {
         const { switchGlobalSshFlow } = await import("./flows");
         await switchGlobalSshFlow(cfg);
+      }
+      if (action === "githubcli") {
+        await manageGithubCliFlow();
       }
     } catch (e: any) {
       showError(`Operation failed: ${e?.message || String(e)}`);
