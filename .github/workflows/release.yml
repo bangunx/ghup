@@ -32,28 +32,28 @@ jobs:
 
     - name: Build all platform binaries
       run: |
-        echo "🔨 Building GhSwitch standalone executables..."
+        echo "🔨 Building GhUp standalone executables..."
         mkdir -p build
         
         # Build for Linux x64
         echo "🐧 Building for Linux x64..."
-        bun build --compile --target=bun-linux-x64 --minify --sourcemap --outfile build/ghswitch ./index.ts
+        bun build --compile --target=bun-linux-x64 --minify --sourcemap --outfile build/ghup ./index.ts
         
         # Build for Linux ARM64
         echo "🐧 Building for Linux ARM64..."
-        bun build --compile --target=bun-linux-arm64 --minify --sourcemap --outfile build/ghswitch-linux-arm64 ./index.ts
+        bun build --compile --target=bun-linux-arm64 --minify --sourcemap --outfile build/ghup-linux-arm64 ./index.ts
         
         # Build for Windows x64
         echo "🪟 Building for Windows x64..."
-        bun build --compile --target=bun-windows-x64 --minify --sourcemap --outfile build/ghswitch.exe ./index.ts
+        bun build --compile --target=bun-windows-x64 --minify --sourcemap --outfile build/ghup.exe ./index.ts
         
         # Build for macOS x64
         echo "🍎 Building for macOS x64..."
-        bun build --compile --target=bun-darwin-x64 --minify --sourcemap --outfile build/ghswitch-macos ./index.ts
+        bun build --compile --target=bun-darwin-x64 --minify --sourcemap --outfile build/ghup-macos ./index.ts
         
         # Build for macOS ARM64
         echo "🍎 Building for macOS ARM64..."
-        bun build --compile --target=bun-darwin-arm64 --minify --sourcemap --outfile build/ghswitch-macos-arm64 ./index.ts
+        bun build --compile --target=bun-darwin-arm64 --minify --sourcemap --outfile build/ghup-macos-arm64 ./index.ts
         
         echo "✅ All builds completed!"
 
@@ -70,20 +70,28 @@ jobs:
       run: |
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "tag_name=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
-          echo "release_name=GhSwitch ${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          echo "release_name=GhUp ${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
         else
           echo "tag_name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-          echo "release_name=GhSwitch ${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "release_name=GhUp ${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
         fi
+
+    - name: Repository metadata
+      id: repo
+      run: |
+        OWNER="${GITHUB_REPOSITORY%/*}"
+        NAME="${GITHUB_REPOSITORY#*/}"
+        echo "owner=$OWNER" >> "$GITHUB_OUTPUT"
+        echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
     - name: Create Release
       id: create_release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ steps.release_info.outputs.tag_name }}
         name: ${{ steps.release_info.outputs.release_name }}
         body: |
-          # 🎉 GhSwitch Release - ${{ steps.release_info.outputs.tag_name }}
+          # 🎉 GhUp Release - ${{ steps.release_info.outputs.tag_name }}
           
           **Beautiful GitHub Account Switcher - Standalone Binaries**
           
@@ -93,17 +101,17 @@ jobs:
           
           | Platform | Binary | Size |
           |----------|--------|------|
-          | 🐧 **Linux x64** | [`ghswitch`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch) | ~100MB |
-          | 🐧 **Linux ARM64** | [`ghswitch-linux-arm64`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-linux-arm64) | ~93MB |
-          | 🪟 **Windows x64** | [`ghswitch.exe`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch.exe) | ~114MB |
-          | 🍎 **macOS Intel** | [`ghswitch-macos`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-macos) | ~64MB |
-          | 🍎 **macOS Apple Silicon** | [`ghswitch-macos-arm64`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-macos-arm64) | ~58MB |
+          | 🐧 **Linux x64** | [`ghup`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup) | ~100MB |
+          | 🐧 **Linux ARM64** | [`ghup-linux-arm64`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-linux-arm64) | ~93MB |
+          | 🪟 **Windows x64** | [`ghup.exe`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup.exe) | ~114MB |
+          | 🍎 **macOS Intel** | [`ghup-macos`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-macos) | ~64MB |
+          | 🍎 **macOS Apple Silicon** | [`ghup-macos-arm64`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-macos-arm64) | ~58MB |
           
           ## 🚀 Quick Start
           
           ### One-line installation:
           ```bash
-          curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install.sh | bash
+          curl -fsSL https://raw.githubusercontent.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/main/install.sh | bash
           ```
           
           ### Manual installation:
@@ -133,8 +141,8 @@ jobs:
           ## 📋 Usage Examples
           
           ```bash
-          # Start GhSwitch
-          ./ghswitch
+          # Start GhUp
+          ./ghup
           
           # Add a new GitHub account
           # Choose: ➕ Add account
@@ -152,36 +160,36 @@ jobs:
           ## 🔧 Verification
           
           Verify the integrity of your download using checksums:
-          - Download [`checksums.txt`](https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/checksums.txt)
+          - Download [`checksums.txt`](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/checksums.txt)
           - Run: `sha256sum -c checksums.txt`
           
           ## 📚 Documentation
           
-          - [README.md](https://github.com/podsni/GhSwitch/blob/main/README.md) - Complete documentation
-          - [DISTRIBUTION.md](https://github.com/podsni/GhSwitch/blob/main/DISTRIBUTION.md) - Distribution guide
+          - [README.md](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/blob/main/README.md) - Complete documentation
+          - [DISTRIBUTION.md](https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/blob/main/DISTRIBUTION.md) - Distribution guide
           
           ---
           
-          **Full Changelog**: https://github.com/podsni/GhSwitch/compare/v1.0.0...${{ steps.release_info.outputs.tag_name }}
+          **Full Changelog**: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/compare/${{ steps.release_info.outputs.tag_name }}^...${{ steps.release_info.outputs.tag_name }}
         draft: false
         prerelease: false
         files: |
-          build/ghswitch
-          build/ghswitch-linux-arm64
-          build/ghswitch.exe
-          build/ghswitch-macos
-          build/ghswitch-macos-arm64
+          build/ghup
+          build/ghup-linux-arm64
+          build/ghup.exe
+          build/ghup-macos
+          build/ghup-macos-arm64
           checksums.txt
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update installation script URLs
       run: |
         echo "✅ Release created successfully!"
-        echo "📦 Binaries uploaded to: https://github.com/podsni/GhSwitch/releases/tag/${{ steps.release_info.outputs.tag_name }}"
+        echo "📦 Binaries uploaded to: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/tag/${{ steps.release_info.outputs.tag_name }}"
         echo ""
         echo "🔗 Download links:"
-        echo "- Linux x64: https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch"
-        echo "- Linux ARM64: https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-linux-arm64"
-        echo "- Windows x64: https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch.exe"
-        echo "- macOS Intel: https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-macos"
-        echo "- macOS Apple Silicon: https://github.com/podsni/GhSwitch/releases/download/${{ steps.release_info.outputs.tag_name }}/ghswitch-macos-arm64"
+        echo "- Linux x64: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup"
+        echo "- Linux ARM64: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-linux-arm64"
+        echo "- Windows x64: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup.exe"
+        echo "- macOS Intel: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-macos"
+        echo "- macOS Apple Silicon: https://github.com/${{ steps.repo.outputs.owner }}/${{ steps.repo.outputs.name }}/releases/download/${{ steps.release_info.outputs.tag_name }}/ghup-macos-arm64"
