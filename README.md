@@ -1,4 +1,4 @@
-# 🎯 GhSwitch - Beautiful GitHub Account Switcher
+# 🎯 GhUp - Beautiful GitHub Account Switcher
 
 <## 🚀 Quick Start
 
@@ -6,13 +6,13 @@
 
 ```bash
 # Start interactive mode
-ghswitch
+ghup
 
 # Check version
-ghswitch --version
+ghup --version
 
 # Get help
-ghswitch --help
+ghup --help
 ```
 
 This will launch the interactive menu where you can:
@@ -24,7 +24,7 @@ This will launch the interactive menu where you can:
 
 ### First Time Setup
 
-1. Run `ghswitch` in your terminal
+1. Run `ghup` in your terminal
 2. Choose "➕ Add account"
 3. Enter your GitHub account details
 4. Choose authentication method (SSH or Token)
@@ -33,7 +33,7 @@ This will launch the interactive menu where you can:
 ### Switching Accounts
 
 1. Navigate to any Git repository
-2. Run `ghswitch`
+2. Run `ghup`
 3. Choose "🔄 Switch account for current repo"
 4. Select your desired account
 5. Done! Your repository now uses the selected account">
@@ -51,75 +51,75 @@ This will launch the interactive menu where you can:
 ### 🚀 One-line Install (Recommended)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 ### 📦 Package Managers
 
 **NPM/Yarn/PNPM**
 ```bash
-npm install -g ghswitch
-yarn global add ghswitch
-pnpm add -g ghswitch
+npm install -g ghup
+yarn global add ghup
+pnpm add -g ghup
 ```
 
 **Bun (Recommended)**
 ```bash
-bun install -g ghswitch
+bun install -g ghup
 ```
 
 > 🐚 **Shell Compatibility**: Works with bash, zsh, fish, and other POSIX-compatible shells. Automatically detects and uses the best runtime (Bun → Node.js → fallback).
 
 **Homebrew (macOS/Linux)**
 ```bash
-brew tap podsni/ghswitch
-brew install ghswitch
+brew tap bangunx/ghup
+brew install ghup
 ```
 
 **Arch Linux (AUR)**
 ```bash
-yay -S ghswitch-bin
-paru -S ghswitch-bin
+yay -S ghup-bin
+paru -S ghup-bin
 ```
 
 **Scoop (Windows)**
 ```powershell
-scoop bucket add podsni https://github.com/podsni/scoop-ghswitch
-scoop install ghswitch
+scoop bucket add bangunx https://github.com/bangunx/scoop-ghup
+scoop install ghup
 ```
 
 ### 📥 Manual Download
 
-Download pre-built binaries from [GitHub Releases](https://github.com/podsni/GhSwitch/releases/latest):
+Download pre-built binaries from [GitHub Releases](https://github.com/bangunx/ghup/releases/latest):
 
-- **Linux x64**: `ghswitch`
-- **Linux ARM64**: `ghswitch-linux-arm64`  
-- **Windows x64**: `ghswitch.exe`
-- **macOS Intel**: `ghswitch-macos`
-- **macOS Apple Silicon**: `ghswitch-macos-arm64`
+- **Linux x64**: `ghup`
+- **Linux ARM64**: `ghup-linux-arm64`  
+- **Windows x64**: `ghup.exe`
+- **macOS Intel**: `ghup-macos`
+- **macOS Apple Silicon**: `ghup-macos-arm64`
 
 ```bash
 # Make executable and move to PATH
-chmod +x ghswitch
-sudo mv ghswitch /usr/local/bin/
+chmod +x ghup
+sudo mv ghup /usr/local/bin/
 ```
 
 > 📋 See [INSTALL.md](INSTALL.md) for all installation methods and troubleshooting.
 
 ### 📥 Manual Download
 
-Download pre-built binaries from [GitHub Releases](https://github.com/podsni/GhSwitch/releases/latest):
+Download pre-built binaries from [GitHub Releases](https://github.com/bangunx/ghup/releases/latest):
 
-- **Linux x64**: `ghswitch`
-- **Linux ARM64**: `ghswitch-linux-arm64`
-- **Windows x64**: `ghswitch.exe`
-- **macOS Intel**: `ghswitch-macos`
-- **macOS Apple Silicon**: `ghswitch-macos-arm64`
+- **Linux x64**: `ghup`
+- **Linux ARM64**: `ghup-linux-arm64`
+- **Windows x64**: `ghup.exe`
+- **macOS Intel**: `ghup-macos`
+- **macOS Apple Silicon**: `ghup-macos-arm64`
 
 ```bash
 # Make executable and move to PATH
-chmod +x ghswitch
-sudo mv ghswitch /usr/local/bin/
+chmod +x ghup
+sudo mv ghup /usr/local/bin/
 ```
 
 > 📋 See [INSTALL.md](INSTALL.md) for all installation methods and troubleshooting.
@@ -154,8 +154,8 @@ sudo mv ghswitch /usr/local/bin/
 
 ```bash
 # Clone repository
-git clone https://github.com/podsni/GhSwitch.git
-cd GhSwitch
+git clone https://github.com/bangunx/ghup.git
+cd GhUp
 
 # Install dependencies
 bun install
@@ -305,8 +305,8 @@ Host github.com
 
 Contributions are welcome! Please check our [Contributing Guidelines](CONTRIBUTING.md) and feel free to:
 
-- Report bugs by opening an [issue](https://github.com/podsni/GhSwitch/issues)
-- Request features through [discussions](https://github.com/podsni/GhSwitch/discussions)
+- Report bugs by opening an [issue](https://github.com/bangunx/ghup/issues)
+- Request features through [discussions](https://github.com/bangunx/ghup/discussions)
 - Submit pull requests with improvements
 
 ## 📄 License
@@ -323,8 +323,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by [podsni](https://github.com/podsni)**
+**Made with ❤️ by [bangunx](https://github.com/bangunx)**
 
-⭐ If you find GhSwitch useful, please give it a star on GitHub!
+⭐ If you find GhUp useful, please give it a star on GitHub!
 
 </div>

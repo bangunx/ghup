@@ -1,6 +1,6 @@
 # 🚀 GitHub Actions & Release Workflow
 
-This document explains how to use the automated GitHub Actions workflows for building and releasing GhSwitch.
+This document explains how to use the automated GitHub Actions workflows for building and releasing GhUp.
 
 ## 📋 Available Workflows
 
@@ -93,7 +93,7 @@ git push origin v1.0.0
 ### Option 2: Manual Workflow Trigger
 
 1. **Go to GitHub Actions:**
-   - Visit: `https://github.com/podsni/GhSwitch/actions`
+   - Visit: `https://github.com/bangunx/ghup/actions`
    - Click "Build and Release" workflow
    - Click "Run workflow"
 
@@ -109,7 +109,7 @@ git push origin v1.0.0
 ### Option 3: Draft Release (For Review)
 
 1. **Go to GitHub Actions:**
-   - Visit: `https://github.com/podsni/GhSwitch/actions`
+   - Visit: `https://github.com/bangunx/ghup/actions`
    - Click "Create Release Draft" workflow
    - Click "Run workflow"
 
@@ -147,11 +147,11 @@ Every release includes:
 
 | File | Description | Size |
 |------|-------------|------|
-| `ghswitch` | Linux x64 binary | ~100MB |
-| `ghswitch-linux-arm64` | Linux ARM64 binary | ~93MB |
-| `ghswitch.exe` | Windows x64 binary | ~114MB |
-| `ghswitch-macos` | macOS Intel binary | ~64MB |
-| `ghswitch-macos-arm64` | macOS Apple Silicon binary | ~58MB |
+| `ghup` | Linux x64 binary | ~100MB |
+| `ghup-linux-arm64` | Linux ARM64 binary | ~93MB |
+| `ghup.exe` | Windows x64 binary | ~114MB |
+| `ghup-macos` | macOS Intel binary | ~64MB |
+| `ghup-macos-arm64` | macOS Apple Silicon binary | ~58MB |
 | `checksums.txt` | SHA256 checksums | <1KB |
 
 ## 🔐 Verification Process

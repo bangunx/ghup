@@ -1,23 +1,23 @@
-# 📦 GhSwitch Installation & Distribution Guide
+# 📦 GhUp Installation & Distribution Guide
 
-Panduan lengkap instalasi GhSwitch dengan berbagai metode, seperti yang Anda minta!
+Panduan lengkap instalasi GhUp dengan berbagai metode, seperti yang Anda minta!
 
 ## 🚀 Instalasi One-Line (Termudah)
 
 ### Curl (Semua Platform)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 ### Wget (Linux)
 ```bash
-wget -qO- https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+wget -qO- https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 Script ini akan otomatis:
 - Detect platform Anda (Linux x64/ARM64, macOS Intel/ARM, Windows)
 - Download binary yang sesuai
-- Install ke `/usr/local/bin/ghswitch` atau `~/.local/bin/ghswitch`
+- Install ke `/usr/local/bin/ghup` atau `~/.local/bin/ghup`
 - Setup PATH jika diperlukan
 
 ## 📦 Package Managers
@@ -26,108 +26,108 @@ Script ini akan otomatis:
 
 **NPM**
 ```bash
-npm install -g ghswitch
+npm install -g ghup
 ```
 
 **Yarn**
 ```bash
-yarn global add ghswitch
+yarn global add ghup
 ```
 
 **PNPM**
 ```bash
-pnpm add -g ghswitch
+pnpm add -g ghup
 ```
 
 **Bun** (Recommended!)
 ```bash
-bun install -g ghswitch
+bun install -g ghup
 ```
 
 Setelah install, langsung bisa run:
 ```bash
-ghswitch
+ghup
 ```
 
 ### Homebrew (macOS/Linux)
 ```bash
 # Add tap (sekali saja)
-brew tap podsni/ghswitch
+brew tap bangunx/ghup
 
 # Install
-brew install ghswitch
+brew install ghup
 ```
 
 ### Arch Linux (AUR)
 
 **Using yay**
 ```bash
-yay -S ghswitch-bin
+yay -S ghup-bin
 ```
 
 **Using paru** 
 ```bash
-paru -S ghswitch-bin
+paru -S ghup-bin
 ```
 
 **Manual dengan makepkg**
 ```bash
-git clone https://aur.archlinux.org/ghswitch-bin.git
-cd ghswitch-bin
+git clone https://aur.archlinux.org/ghup-bin.git
+cd ghup-bin
 makepkg -si
 ```
 
 ### Scoop (Windows)
 ```powershell
 # Add bucket (sekali saja)
-scoop bucket add podsni https://github.com/podsni/scoop-ghswitch
+scoop bucket add bangunx https://github.com/bangunx/scoop-ghup
 
 # Install
-scoop install ghswitch
+scoop install ghup
 ```
 
 ### Chocolatey (Windows)
 ```powershell
-choco install ghswitch
+choco install ghup
 ```
 
 ## 📥 Manual Download
 
-Download dari [GitHub Releases](https://github.com/podsni/GhSwitch/releases/latest):
+Download dari [GitHub Releases](https://github.com/bangunx/ghup/releases/latest):
 
-- **Linux x64**: `ghswitch`
-- **Linux ARM64**: `ghswitch-linux-arm64`
-- **Windows x64**: `ghswitch.exe`
-- **macOS Intel**: `ghswitch-macos`
-- **macOS Apple Silicon**: `ghswitch-macos-arm64`
+- **Linux x64**: `ghup`
+- **Linux ARM64**: `ghup-linux-arm64`
+- **Windows x64**: `ghup.exe`
+- **macOS Intel**: `ghup-macos`
+- **macOS Apple Silicon**: `ghup-macos-arm64`
 
 ### Install Manual
 
 **Linux/macOS**:
 ```bash
 # Download
-wget https://github.com/podsni/GhSwitch/releases/latest/download/ghswitch
+wget https://github.com/bangunx/ghup/releases/latest/download/ghup
 
 # Make executable
-chmod +x ghswitch
+chmod +x ghup
 
 # Move to PATH
-sudo mv ghswitch /usr/local/bin/
+sudo mv ghup /usr/local/bin/
 
 # Test
-ghswitch --version
+ghup --version
 ```
 
 **Windows**:
 ```powershell
 # Download (gunakan browser atau PowerShell)
-Invoke-WebRequest -Uri "https://github.com/podsni/GhSwitch/releases/latest/download/ghswitch.exe" -OutFile "ghswitch.exe"
+Invoke-WebRequest -Uri "https://github.com/bangunx/ghup/releases/latest/download/ghup.exe" -OutFile "ghup.exe"
 
 # Move to PATH
-Move-Item ghswitch.exe C:\Windows\System32\
+Move-Item ghup.exe C:\Windows\System32\
 
 # Test
-ghswitch --version
+ghup --version
 ```
 
 ## ✅ Verifikasi Instalasi
@@ -135,27 +135,27 @@ ghswitch --version
 Setelah install dengan metode apapun:
 ```bash
 # Cek versi
-ghswitch --version
+ghup --version
 # atau
-ghswitch -v
+ghup -v
 
 # Lihat bantuan
-ghswitch --help
+ghup --help
 # atau
-ghswitch -h
+ghup -h
 
 # Jalankan interaktif
-ghswitch
+ghup
 ```
 
 Output versi akan terlihat seperti ini:
 ```
-ghswitch v1.2.1
+ghup v1.2.1
 Beautiful GitHub Account Switcher
 Interactive CLI tool for managing multiple GitHub accounts per repository
 
-GitHub: https://github.com/podsni/GhSwitch
-NPM: https://www.npmjs.com/package/ghswitch
+GitHub: https://github.com/bangunx/ghup
+NPM: https://www.npmjs.com/package/ghup
 ```
 
 ## 🔄 Update
@@ -163,31 +163,31 @@ NPM: https://www.npmjs.com/package/ghswitch
 ### Package Managers
 ```bash
 # NPM
-npm update -g ghswitch
+npm update -g ghup
 
 # Yarn
-yarn global upgrade ghswitch
+yarn global upgrade ghup
 
 # Bun
-bun update -g ghswitch
+bun update -g ghup
 
 # Homebrew
-brew upgrade ghswitch
+brew upgrade ghup
 
 # Arch Linux
-yay -Syu ghswitch-bin
+yay -Syu ghup-bin
 
 # Scoop
-scoop update ghswitch
+scoop update ghup
 
 # Chocolatey
-choco upgrade ghswitch
+choco upgrade ghup
 ```
 
 ### One-line Installer
 Jalankan lagi script instalasi - akan otomatis replace dengan versi terbaru:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 ## 🗑️ Uninstall
@@ -195,33 +195,33 @@ curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.s
 ### Package Managers
 ```bash
 # NPM
-npm uninstall -g ghswitch
+npm uninstall -g ghup
 
 # Yarn  
-yarn global remove ghswitch
+yarn global remove ghup
 
 # Bun
-bun remove -g ghswitch
+bun remove -g ghup
 
 # Homebrew
-brew uninstall ghswitch
+brew uninstall ghup
 
 # Arch Linux
-yay -R ghswitch-bin
+yay -R ghup-bin
 
 # Scoop
-scoop uninstall ghswitch
+scoop uninstall ghup
 
 # Chocolatey
-choco uninstall ghswitch
+choco uninstall ghup
 ```
 
 ### Manual
 ```bash
 # Remove binary
-sudo rm /usr/local/bin/ghswitch
+sudo rm /usr/local/bin/ghup
 # atau
-rm ~/.local/bin/ghswitch
+rm ~/.local/bin/ghup
 
 # Remove config (opsional)
 rm -rf ~/.config/github-switch/
@@ -242,10 +242,10 @@ source ~/.bashrc
 ### Permission denied
 ```bash
 # Make executable
-chmod +x ghswitch
+chmod +x ghup
 
 # Atau untuk global install
-sudo mv ghswitch /usr/local/bin/
+sudo mv ghup /usr/local/bin/
 ```
 
 ### Network Issues
@@ -255,21 +255,21 @@ sudo mv ghswitch /usr/local/bin/
 
 ## 🎯 Alias Global
 
-Setelah instalasi, Anda bisa gunakan alias `ghswitch` dari mana saja:
+Setelah instalasi, Anda bisa gunakan alias `ghup` dari mana saja:
 
 ```bash
 # Di repository manapun
 cd ~/my-project
-ghswitch
+ghup
 
 # Atau langsung test
-ghswitch --version
+ghup --version
 ```
 
 ## 🚀 Quick Start
 
 1. **Install** dengan salah satu metode di atas
-2. **Run** `ghswitch` 
+2. **Run** `ghup` 
 3. **Add account** pertama Anda
 4. **Switch** antar akun di repository manapun
 5. **Done!** 🎉
@@ -282,7 +282,7 @@ ghswitch --version
 
 ---
 
-**Sekarang GhSwitch bisa diinstall seperti tool populer lainnya!** 
+**Sekarang GhUp bisa diinstall seperti tool populer lainnya!** 
 
 Mirip dengan:
 - `npm install -g @google/gemini-cli`
@@ -290,4 +290,4 @@ Mirip dengan:
 - `brew install sst/tap/opencode`
 - `yay -S opencode-bin`
 
-Tetapi untuk **GhSwitch** dengan alias `ghswitch` 🎯
+Tetapi untuk **GhUp** dengan alias `ghup` 🎯

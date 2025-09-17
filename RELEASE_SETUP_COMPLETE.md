@@ -2,7 +2,7 @@
 
 ## 🎉 Summary
 
-GitHub Actions workflows dan sistem release otomatis untuk GhSwitch telah berhasil dibuat! Berikut adalah semua file dan konfigurasi yang telah disetup:
+GitHub Actions workflows dan sistem release otomatis untuk GhUp telah berhasil dibuat! Berikut adalah semua file dan konfigurasi yang telah disetup:
 
 ## 📁 Files Created/Updated
 
@@ -45,14 +45,14 @@ git push origin v1.0.0
 ```
 
 ### Method 2: Manual GitHub Actions
-1. Go to: `https://github.com/podsni/GhSwitch/actions`
+1. Go to: `https://github.com/bangunx/ghup/actions`
 2. Click "Build and Release" workflow
 3. Click "Run workflow"
 4. Enter version: `1.0.0`
 5. Click "Run workflow"
 
 ### Method 3: Draft Release
-1. Go to: `https://github.com/podsni/GhSwitch/actions`
+1. Go to: `https://github.com/bangunx/ghup/actions`
 2. Click "Create Release Draft" workflow  
 3. Click "Run workflow"
 4. Enter version and options
@@ -76,12 +76,12 @@ Setiap release otomatis akan include:
 
 | Platform | Binary Name | Size | Download URL |
 |----------|-------------|------|--------------|
-| 🐧 Linux x64 | `ghswitch` | ~100MB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/ghswitch` |
-| 🐧 Linux ARM64 | `ghswitch-linux-arm64` | ~93MB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/ghswitch-linux-arm64` |
-| 🪟 Windows x64 | `ghswitch.exe` | ~114MB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/ghswitch.exe` |
-| 🍎 macOS Intel | `ghswitch-macos` | ~64MB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/ghswitch-macos` |
-| 🍎 macOS Apple Silicon | `ghswitch-macos-arm64` | ~58MB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/ghswitch-macos-arm64` |
-| 🔐 Checksums | `checksums.txt` | <1KB | `github.com/podsni/GhSwitch/releases/download/v1.0.0/checksums.txt` |
+| 🐧 Linux x64 | `ghup` | ~100MB | `github.com/bangunx/ghup/releases/download/v1.0.0/ghup` |
+| 🐧 Linux ARM64 | `ghup-linux-arm64` | ~93MB | `github.com/bangunx/ghup/releases/download/v1.0.0/ghup-linux-arm64` |
+| 🪟 Windows x64 | `ghup.exe` | ~114MB | `github.com/bangunx/ghup/releases/download/v1.0.0/ghup.exe` |
+| 🍎 macOS Intel | `ghup-macos` | ~64MB | `github.com/bangunx/ghup/releases/download/v1.0.0/ghup-macos` |
+| 🍎 macOS Apple Silicon | `ghup-macos-arm64` | ~58MB | `github.com/bangunx/ghup/releases/download/v1.0.0/ghup-macos-arm64` |
+| 🔐 Checksums | `checksums.txt` | <1KB | `github.com/bangunx/ghup/releases/download/v1.0.0/checksums.txt` |
 
 ## ✨ Features Included
 
@@ -99,19 +99,19 @@ Users sekarang bisa:
 
 1. **One-line installation:**
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install.sh | bash
    ```
 
 2. **Direct download:**
    ```bash
-   wget https://github.com/podsni/GhSwitch/releases/latest/download/ghswitch
-   chmod +x ghswitch
-   ./ghswitch
+   wget https://github.com/bangunx/ghup/releases/latest/download/ghup
+   chmod +x ghup
+   ./ghup
    ```
 
 3. **Verification:**
    ```bash
-   wget https://github.com/podsni/GhSwitch/releases/latest/download/checksums.txt
+   wget https://github.com/bangunx/ghup/releases/latest/download/checksums.txt
    sha256sum -c checksums.txt
    ```
 
@@ -140,7 +140,7 @@ Setup ini memberikan:
 - ✅ **Secure checksum verification**
 - ✅ **Beautiful documentation**
 
-GhSwitch sekarang siap untuk distribusi profesional dengan workflow release yang sepenuhnya otomatis! 🚀
+GhUp sekarang siap untuk distribusi profesional dengan workflow release yang sepenuhnya otomatis! 🚀
 
 ## 🚀 Next Steps
 

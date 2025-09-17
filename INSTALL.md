@@ -1,17 +1,17 @@
-# 📦 GhSwitch Installation Methods
+# 📦 GhUp Installation Methods
 
-Multiple ways to install GhSwitch on your system:
+Multiple ways to install GhUp on your system:
 
 ## 🚀 One-line Install (Recommended)
 
 **Curl (Cross-platform)**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 **Wget (Linux)**
 ```bash
-wget -qO- https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+wget -qO- https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 This will automatically detect your platform and install the appropriate binary to `/usr/local/bin` or `~/.local/bin`.
@@ -22,51 +22,51 @@ This will automatically detect your platform and install the appropriate binary 
 
 **NPM**
 ```bash
-npm install -g ghswitch
+npm install -g ghup
 ```
 
 **Yarn**
 ```bash
-yarn global add ghswitch
+yarn global add ghup
 ```
 
 **PNPM**
 ```bash
-pnpm add -g ghswitch
+pnpm add -g ghup
 ```
 
 ### Bun (Recommended for Bun users)
 
 ```bash
-bun install -g ghswitch
+bun install -g ghup
 ```
 
 ### Homebrew (macOS/Linux)
 
 ```bash
 # Add the tap (once)
-brew tap podsni/ghswitch
+brew tap bangunx/ghup
 
 # Install
-brew install ghswitch
+brew install ghup
 ```
 
 ### Arch Linux (AUR)
 
 **Using yay**
 ```bash
-yay -S ghswitch-bin
+yay -S ghup-bin
 ```
 
 **Using paru**
 ```bash
-paru -S ghswitch-bin
+paru -S ghup-bin
 ```
 
 **Using makepkg**
 ```bash
-git clone https://aur.archlinux.org/ghswitch-bin.git
-cd ghswitch-bin
+git clone https://aur.archlinux.org/ghup-bin.git
+cd ghup-bin
 makepkg -si
 ```
 
@@ -74,46 +74,46 @@ makepkg -si
 
 ```powershell
 # Add bucket (once)
-scoop bucket add podsni https://github.com/podsni/scoop-ghswitch
+scoop bucket add bangunx https://github.com/bangunx/scoop-ghup
 
 # Install
-scoop install ghswitch
+scoop install ghup
 ```
 
 ### Chocolatey (Windows)
 
 ```powershell
-choco install ghswitch
+choco install ghup
 ```
 
 ## 📥 Manual Download
 
-Download pre-built binaries from [GitHub Releases](https://github.com/podsni/GhSwitch/releases/latest):
+Download pre-built binaries from [GitHub Releases](https://github.com/bangunx/ghup/releases/latest):
 
-- **Linux x64**: `ghswitch`
-- **Linux ARM64**: `ghswitch-linux-arm64`
-- **Windows x64**: `ghswitch.exe`
-- **macOS Intel**: `ghswitch-macos`
-- **macOS Apple Silicon**: `ghswitch-macos-arm64`
+- **Linux x64**: `ghup`
+- **Linux ARM64**: `ghup-linux-arm64`
+- **Windows x64**: `ghup.exe`
+- **macOS Intel**: `ghup-macos`
+- **macOS Apple Silicon**: `ghup-macos-arm64`
 
 ### Manual Installation Steps
 
 1. **Download** the appropriate binary for your platform
 2. **Make executable** (Linux/macOS):
    ```bash
-   chmod +x ghswitch
+   chmod +x ghup
    ```
 3. **Move to PATH** (optional, for global access):
    ```bash
    # Linux/macOS
-   sudo mv ghswitch /usr/local/bin/
+   sudo mv ghup /usr/local/bin/
    
    # Or to user directory
    mkdir -p ~/.local/bin
-   mv ghswitch ~/.local/bin/
+   mv ghup ~/.local/bin/
    
    # Windows (as administrator)
-   move ghswitch.exe C:\Windows\System32\
+   move ghup.exe C:\Windows\System32\
    ```
 
 ## 🔧 Development Installation
@@ -122,8 +122,8 @@ For contributors or advanced users who want to build from source:
 
 ```bash
 # Clone repository
-git clone https://github.com/podsni/GhSwitch.git
-cd GhSwitch
+git clone https://github.com/bangunx/ghup.git
+cd GhUp
 
 # Install dependencies
 bun install
@@ -140,13 +140,13 @@ bun run build
 After installation, verify it works:
 
 ```bash
-ghswitch --version
+ghup --version
 ```
 
 You should see the version number and be able to run:
 
 ```bash
-ghswitch
+ghup
 ```
 
 ## 🔄 Updating
@@ -154,25 +154,25 @@ ghswitch
 ### Package Managers
 ```bash
 # NPM
-npm update -g ghswitch
+npm update -g ghup
 
 # Yarn
-yarn global upgrade ghswitch
+yarn global upgrade ghup
 
 # Bun
-bun update -g ghswitch
+bun update -g ghup
 
 # Homebrew
-brew upgrade ghswitch
+brew upgrade ghup
 
 # Arch Linux
-yay -Syu ghswitch-bin
+yay -Syu ghup-bin
 
 # Scoop
-scoop update ghswitch
+scoop update ghup
 
 # Chocolatey
-choco upgrade ghswitch
+choco upgrade ghup
 ```
 
 ### One-line Installer
@@ -183,33 +183,33 @@ Simply run the one-line installer again - it will download and replace the exist
 ### Package Managers
 ```bash
 # NPM
-npm uninstall -g ghswitch
+npm uninstall -g ghup
 
 # Yarn
-yarn global remove ghswitch
+yarn global remove ghup
 
 # Bun
-bun remove -g ghswitch
+bun remove -g ghup
 
 # Homebrew
-brew uninstall ghswitch
+brew uninstall ghup
 
 # Arch Linux
-yay -R ghswitch-bin
+yay -R ghup-bin
 
 # Scoop
-scoop uninstall ghswitch
+scoop uninstall ghup
 
 # Chocolatey
-choco uninstall ghswitch
+choco uninstall ghup
 ```
 
 ### Manual Removal
 ```bash
 # Remove binary
-sudo rm /usr/local/bin/ghswitch
+sudo rm /usr/local/bin/ghup
 # or
-rm ~/.local/bin/ghswitch
+rm ~/.local/bin/ghup
 
 # Remove configuration (optional)
 rm -rf ~/.config/github-switch/
@@ -225,7 +225,7 @@ rm -rf ~/.config/github-switch/
   ```
 
 ### Permission denied
-- Make sure the binary is executable: `chmod +x ghswitch`
+- Make sure the binary is executable: `chmod +x ghup`
 - For global installation, you may need `sudo`
 
 ### Download issues
@@ -235,4 +235,4 @@ rm -rf ~/.config/github-switch/
 
 ---
 
-**Need help?** Open an issue on [GitHub](https://github.com/podsni/GhSwitch/issues) or check our [documentation](https://github.com/podsni/GhSwitch).
+**Need help?** Open an issue on [GitHub](https://github.com/bangunx/ghup/issues) or check our [documentation](https://github.com/bangunx/ghup).

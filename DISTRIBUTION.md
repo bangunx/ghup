@@ -1,4 +1,4 @@
-# GhSwitch - GitHub Account Switcher
+# GhUp - GitHub Account Switcher
 
 A beautiful, interactive CLI tool for managing multiple GitHub accounts per repository.
 
@@ -8,12 +8,12 @@ A beautiful, interactive CLI tool for managing multiple GitHub accounts per repo
 
 **Curl (Cross-platform)**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 **Wget (Linux)**
 ```bash
-wget -qO- https://raw.githubusercontent.com/podsni/GhSwitch/main/install-curl.sh | bash
+wget -qO- https://raw.githubusercontent.com/bangunx/ghup/main/install-curl.sh | bash
 ```
 
 This automatically detects your platform and installs the appropriate binary.
@@ -22,74 +22,74 @@ This automatically detects your platform and installs the appropriate binary.
 
 **NPM/Yarn/PNPM/Bun**
 ```bash
-npm install -g ghswitch
-yarn global add ghswitch
-pnpm add -g ghswitch
-bun install -g ghswitch
+npm install -g ghup
+yarn global add ghup
+pnpm add -g ghup
+bun install -g ghup
 ```
 
 **Homebrew (macOS/Linux)**
 ```bash
-brew tap podsni/ghswitch
-brew install ghswitch
+brew tap bangunx/ghup
+brew install ghup
 ```
 
 **Arch Linux (AUR)**
 ```bash
-yay -S ghswitch-bin
-paru -S ghswitch-bin
+yay -S ghup-bin
+paru -S ghup-bin
 ```
 
 **Scoop (Windows)**
 ```powershell
-scoop bucket add podsni https://github.com/podsni/scoop-ghswitch
-scoop install ghswitch
+scoop bucket add bangunx https://github.com/bangunx/scoop-ghup
+scoop install ghup
 ```
 
 **Chocolatey (Windows)**
 ```powershell
-choco install ghswitch
+choco install ghup
 ```
 
 ### Download and Install
 
 1. Download the appropriate binary for your platform:
-   - **Linux x64**: `ghswitch`
-   - **Linux ARM64**: `ghswitch-linux-arm64`
-   - **Windows x64**: `ghswitch.exe`
-   - **macOS Intel**: `ghswitch-macos`
-   - **macOS Apple Silicon**: `ghswitch-macos-arm64`
+   - **Linux x64**: `ghup`
+   - **Linux ARM64**: `ghup-linux-arm64`
+   - **Windows x64**: `ghup.exe`
+   - **macOS Intel**: `ghup-macos`
+   - **macOS Apple Silicon**: `ghup-macos-arm64`
 
 2. Make it executable (Linux/macOS):
    ```bash
-   chmod +x ghswitch
+   chmod +x ghup
    ```
 
 3. Run it:
    ```bash
    # Linux/macOS
-   ./ghswitch
+   ./ghup
    
    # Windows
-   ./ghswitch.exe
+   ./ghup.exe
    ```
 
 ### Global Installation (Optional)
 
-To use `ghswitch` from anywhere, move it to your PATH:
+To use `ghup` from anywhere, move it to your PATH:
 
 **Linux/macOS:**
 ```bash
 # Copy to a directory in your PATH
-sudo cp ghswitch /usr/local/bin/
-# Now you can run: ghswitch
+sudo cp ghup /usr/local/bin/
+# Now you can run: ghup
 ```
 
 **Windows:**
 ```cmd
 # Copy to a directory in your PATH, e.g.:
-copy ghswitch.exe C:\Windows\System32\
-# Now you can run: ghswitch
+copy ghup.exe C:\Windows\System32\
+# Now you can run: ghup
 ```
 
 ## ✨ Features
@@ -104,9 +104,9 @@ copy ghswitch.exe C:\Windows\System32\
 
 ## 🚀 Quick Start
 
-1. **Run GhSwitch**:
+1. **Run GhUp**:
    ```bash
-   ./ghswitch
+   ./ghup
    ```
 
 2. **Add your first account**:
@@ -117,7 +117,7 @@ copy ghswitch.exe C:\Windows\System32\
 
 3. **Switch accounts in any repository**:
    - Navigate to your git repository
-   - Run `./ghswitch`
+   - Run `./ghup`
    - Choose "🔄 Switch account for current repo"
    - Select your desired account
 
@@ -144,7 +144,7 @@ Each account can have BOTH SSH and token authentication configured for maximum f
 
 ## 🔧 Configuration
 
-GhSwitch stores its configuration in:
+GhUp stores its configuration in:
 - **Linux/macOS**: `~/.config/github-switch/config.json`
 - **Windows**: `%APPDATA%\github-switch\config.json`
 
@@ -154,8 +154,8 @@ If you want to build from source:
 
 ```bash
 # Clone the repository
-git clone https://github.com/podsni/GhSwitch.git
-cd GhSwitch
+git clone https://github.com/bangunx/ghup.git
+cd GhUp
 
 # Install Bun (if not already installed)
 curl -fsSL https://bun.sh/install | bash

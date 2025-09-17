@@ -18,21 +18,21 @@ import { ensureGithubCli, manageGithubCliFlow } from "./utils/githubCli";
 const PACKAGE_VERSION = "1.2.1";
 
 function showVersion() {
-  console.log(`ghswitch v${PACKAGE_VERSION}`);
+  console.log(`ghup v${PACKAGE_VERSION}`);
   console.log("Beautiful GitHub Account Switcher");
   console.log("Interactive CLI tool for managing multiple GitHub accounts per repository");
   console.log("");
-  console.log("GitHub: https://github.com/podsni/GhSwitch");
-  console.log("NPM: https://www.npmjs.com/package/ghswitch");
+  console.log("GitHub: https://github.com/bangunx/ghup");
+  console.log("NPM: https://www.npmjs.com/package/ghup");
 }
 
 function showHelp() {
-  console.log("GhSwitch - GitHub Account Switcher");
+  console.log("GhUp - GitHub Account Switcher");
   console.log("");
   console.log("Usage:");
-  console.log("  ghswitch              Start interactive mode");
-  console.log("  ghswitch --version    Show version information");
-  console.log("  ghswitch --help       Show this help message");
+  console.log("  ghup                 Start interactive mode");
+  console.log("  ghup --version       Show version information");
+  console.log("  ghup --help          Show this help message");
   console.log("");
   console.log("Interactive Commands:");
   console.log("  • Add account         Add a new GitHub account");
@@ -43,10 +43,10 @@ function showHelp() {
   console.log("  • Generate SSH key    Create new SSH key for an account");
   console.log("");
   console.log("Examples:");
-  console.log("  ghswitch              # Start interactive menu");
-  console.log("  npm install -g ghswitch  # Install globally");
+  console.log("  ghup                 # Start interactive menu");
+  console.log("  npm install -g ghup  # Install globally");
   console.log("");
-  console.log("Documentation: https://github.com/podsni/GhSwitch#readme");
+  console.log("Documentation: https://github.com/bangunx/ghup#readme");
 }
 
 export async function main() {
@@ -139,7 +139,7 @@ export async function main() {
 
     if (action === "exit" || action === undefined) {
       showSeparator();
-      showSuccess("Thank you for using GhSwitch! 👋");
+      showSuccess("Thank you for using GhUp! 👋");
       break;
     }
     

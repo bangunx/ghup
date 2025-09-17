@@ -42,18 +42,18 @@ function loadFigletFont(text: string, preferredFont: string = "ANSI Shadow"): st
     }
   }
   
-  // Ultimate fallback - manual ASCII art for GhSwitch
+  // Ultimate fallback - manual ASCII art for GhUp
   return `
- ██████╗ ██╗  ██╗███████╗██╗    ██╗██╗████████╗ ██████╗██╗  ██╗
-██╔════╝ ██║  ██║██╔════╝██║    ██║██║╚══██╔══╝██╔════╝██║  ██║
-██║  ███╗███████║███████╗██║ █╗ ██║██║   ██║   ██║     ███████║
-██║   ██║██╔══██║╚════██║██║███╗██║██║   ██║   ██║     ██╔══██║
-╚██████╔╝██║  ██║███████║╚███╔███╔╝██║   ██║   ╚██████╗██║  ██║
- ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝`;
+  ██████╗ ██╗  ██╗██╗   ██╗██████╗ 
+ ██╔═══██╗██║  ██║██║   ██║██╔══██╗
+ ██║   ██║███████║██║   ██║██║  ██║
+ ██║   ██║██╔══██║██║   ██║██║  ██║
+ ╚██████╔╝██║  ██║╚██████╔╝██████╔╝
+  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ `;
 }
 
 // Enhanced title with figlet and gradient
-export function showTitle(text: string = "GhSwitch") {
+export function showTitle(text: string = "GhUp") {
   const figletText = loadFigletFont(text);
   console.log(gradients.primary(figletText));
   console.log(colors.muted("✨ Beautiful GitHub Account Switcher ✨\n"));

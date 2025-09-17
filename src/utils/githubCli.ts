@@ -973,7 +973,7 @@ export async function ensureGithubCli(options: EnsureGithubCliOptions = {}): Pro
   }
 
   showWarning("GitHub CLI (gh) tidak terdeteksi di sistem Anda.");
-  showInfo("Beberapa fitur GhSwitch dapat memanfaatkan GitHub CLI untuk operasi lanjutan.");
+  showInfo("Beberapa fitur GhUp dapat memanfaatkan GitHub CLI untuk operasi lanjutan.");
 
   if (!promptInstall) {
     showInfo("Lewati instalasi GitHub CLI untuk sekarang. Gunakan menu 'Kelola GitHub CLI' bila dibutuhkan.");

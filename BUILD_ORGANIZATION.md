@@ -5,14 +5,14 @@
 Build system telah diperbarui untuk menggunakan struktur yang lebih rapi:
 
 ```
-GhSwitch/
+GhUp/
 ├── build/                          # 📁 Build artifacts directory
 │   ├── .gitkeep                   # Keeps directory in git
-│   ├── ghswitch                   # Linux x64 binary
-│   ├── ghswitch-linux-arm64       # Linux ARM64 binary
-│   ├── ghswitch.exe               # Windows x64 binary
-│   ├── ghswitch-macos             # macOS Intel binary
-│   └── ghswitch-macos-arm64       # macOS Apple Silicon binary
+│   ├── ghup                   # Linux x64 binary
+│   ├── ghup-linux-arm64       # Linux ARM64 binary
+│   ├── ghup.exe               # Windows x64 binary
+│   ├── ghup-macos             # macOS Intel binary
+│   └── ghup-macos-arm64       # macOS Apple Silicon binary
 ├── checksums.txt                   # SHA256 checksums (root level)
 ├── build.sh                       # Build script for all platforms
 ├── release.sh                     # Release script with GitHub CLI
@@ -32,14 +32,14 @@ GhSwitch/
 ### NPM Scripts
 ```bash
 # Build for current platform
-bun run build                    # → build/ghswitch
+bun run build                    # → build/ghup
 
 # Build for specific platforms  
-bun run build:linux            # → build/ghswitch
-bun run build:linux-arm        # → build/ghswitch-linux-arm64
-bun run build:windows          # → build/ghswitch.exe
-bun run build:macos            # → build/ghswitch-macos
-bun run build:macos-arm        # → build/ghswitch-macos-arm64
+bun run build:linux            # → build/ghup
+bun run build:linux-arm        # → build/ghup-linux-arm64
+bun run build:windows          # → build/ghup.exe
+bun run build:macos            # → build/ghup-macos
+bun run build:macos-arm        # → build/ghup-macos-arm64
 
 # Build all platforms
 bun run build:all              # → All binaries in build/
@@ -57,7 +57,7 @@ bun run clean                  # Removes build/* but keeps .gitkeep
 ./release.sh 1.0.0             # Uses build/ binaries
 
 # Test binary
-./build/ghswitch               # Run from build directory
+./build/ghup               # Run from build directory
 ```
 
 ## 📦 Release Process
@@ -83,7 +83,7 @@ All release processes updated to use `build/` structure:
 ```bash
 # Quick build and test
 bun run build
-./build/ghswitch
+./build/ghup
 
 # Build all platforms for distribution
 ./build.sh

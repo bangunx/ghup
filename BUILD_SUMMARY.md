@@ -1,18 +1,18 @@
-# 📦 GhSwitch Standalone Distribution
+# 📦 GhUp Standalone Distribution
 
 ## ✅ Successfully Created Standalone Executables
 
-GhSwitch has been successfully compiled into standalone executables using Bun's `--compile` flag. Here's what we accomplished:
+GhUp has been successfully compiled into standalone executables using Bun's `--compile` flag. Here's what we accomplished:
 
 ### 🎯 Built Binaries
 
 | Platform | Binary Name | Size | Status |
 |----------|-------------|------|--------|
-| Linux x64 | `ghswitch` | ~100MB | ✅ Working |
-| Linux ARM64 | `ghswitch-linux-arm64` | ~93MB | ✅ Working |
-| Windows x64 | `ghswitch.exe` | ~114MB | ✅ Working |
-| macOS Intel | `ghswitch-macos` | ~64MB | ✅ Working |
-| macOS Apple Silicon | `ghswitch-macos-arm64` | ~58MB | ✅ Working |
+| Linux x64 | `ghup` | ~100MB | ✅ Working |
+| Linux ARM64 | `ghup-linux-arm64` | ~93MB | ✅ Working |
+| Windows x64 | `ghup.exe` | ~114MB | ✅ Working |
+| macOS Intel | `ghup-macos` | ~64MB | ✅ Working |
+| macOS Apple Silicon | `ghup-macos-arm64` | ~58MB | ✅ Working |
 
 ### 🛠️ Build Configuration
 
@@ -24,13 +24,13 @@ GhSwitch has been successfully compiled into standalone executables using Bun's 
 ### 📁 New Files Created
 
 ```
-GhSwitch/
+GhUp/
 ├── build.sh                    # Build script for all platforms
 ├── install.sh                  # Installation script for end users
 ├── DISTRIBUTION.md             # Distribution documentation
 ├── .github/workflows/          
 │   └── release.yml             # GitHub Actions for automated releases
-├── ghswitch*                   # Standalone binaries
+├── ghup*                   # Standalone binaries
 └── package.json               # Updated with build scripts
 ```
 
@@ -53,12 +53,12 @@ GhSwitch/
 
 ```bash
 # Download and run (no installation needed)
-wget https://github.com/podsni/GhSwitch/releases/latest/download/ghswitch
-chmod +x ghswitch
-./ghswitch
+wget https://github.com/bangunx/ghup/releases/latest/download/ghup
+chmod +x ghup
+./ghup
 
 # Or use the installation script
-curl -fsSL https://raw.githubusercontent.com/podsni/GhSwitch/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bangunx/ghup/main/install.sh | bash
 ```
 
 ### 🎉 Ready for Production
@@ -67,7 +67,7 @@ The standalone binaries are now ready for distribution and production use. Users
 
 1. Download a single file for their platform
 2. Run it without any dependencies
-3. Use all features of GhSwitch
+3. Use all features of GhUp
 4. Deploy on servers, containers, or any environment
 
 ### 🔄 Build Process

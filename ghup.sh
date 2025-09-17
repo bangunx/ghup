@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# GhSwitch - Cross-shell compatibility wrapper
-# This script ensures GhSwitch works in bash, zsh, and other shells
+# GhUp - Cross-shell compatibility wrapper
+# This script ensures GhUp works in bash, zsh, and other shells
 
 set -e
 
@@ -19,7 +19,7 @@ elif command -v node >/dev/null 2>&1; then
     elif command -v ts-node >/dev/null 2>&1; then
         exec ts-node "$SCRIPT_DIR/index.ts" "$@"
     else
-        echo "Error: GhSwitch requires either:"
+        echo "Error: GhUp requires either:"
         echo "  1. Bun runtime (recommended): https://bun.sh"
         echo "  2. Node.js with tsx or ts-node for TypeScript support"
         echo ""
@@ -33,7 +33,7 @@ elif command -v node >/dev/null 2>&1; then
 else
     echo "Error: No compatible JavaScript runtime found."
     echo ""
-    echo "GhSwitch requires either:"
+    echo "GhUp requires either:"
     echo "  1. Bun runtime (recommended): https://bun.sh"
     echo "  2. Node.js with npm/yarn/pnpm"
     echo ""

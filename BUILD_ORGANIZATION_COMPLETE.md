@@ -2,19 +2,19 @@
 
 ## 🎉 Summary
 
-Sistem build GhSwitch telah berhasil diorganisir ulang untuk menggunakan struktur `build/` directory yang lebih rapi dan profesional!
+Sistem build GhUp telah berhasil diorganisir ulang untuk menggunakan struktur `build/` directory yang lebih rapi dan profesional!
 
 ## 📁 New Structure
 
 ```
-GhSwitch/
+GhUp/
 ├── build/                          # 📁 All build artifacts here
 │   ├── .gitkeep                   # Keeps directory in git
-│   ├── ghswitch                   # Linux x64 binary (100MB)
-│   ├── ghswitch-linux-arm64       # Linux ARM64 binary (93MB)
-│   ├── ghswitch.exe               # Windows x64 binary (114MB)
-│   ├── ghswitch-macos             # macOS Intel binary (64MB)
-│   └── ghswitch-macos-arm64       # macOS Apple Silicon binary (58MB)
+│   ├── ghup                   # Linux x64 binary (100MB)
+│   ├── ghup-linux-arm64       # Linux ARM64 binary (93MB)
+│   ├── ghup.exe               # Windows x64 binary (114MB)
+│   ├── ghup-macos             # macOS Intel binary (64MB)
+│   └── ghup-macos-arm64       # macOS Apple Silicon binary (58MB)
 ├── checksums.txt                   # SHA256 checksums (root level)
 ├── build.sh                       # Build all platforms → build/
 ├── release.sh                     # Release from build/
@@ -42,7 +42,7 @@ GhSwitch/
 ### Build Commands
 ```bash
 # Single platform
-bun run build              # → build/ghswitch
+bun run build              # → build/ghup
 
 # All platforms  
 bun run build:all          # → All in build/
@@ -55,9 +55,9 @@ bun run clean              # Keeps build/.gitkeep
 ### Usage Commands
 ```bash
 # Run from build directory
-./build/ghswitch           # Linux
-./build/ghswitch.exe       # Windows  
-./build/ghswitch-macos     # macOS
+./build/ghup           # Linux
+./build/ghup.exe       # Windows  
+./build/ghup-macos     # macOS
 
 # Release
 ./release.sh 1.0.0         # Uses build/ binaries
@@ -79,9 +79,9 @@ All systems tested and working:
 
 | Component | Status | Notes |
 |-----------|--------|-------|
-| Local Build | ✅ Working | `bun run build` → `build/ghswitch` |
+| Local Build | ✅ Working | `bun run build` → `build/ghup` |
 | Multi-Platform Build | ✅ Working | `./build.sh` → all binaries in `build/` |
-| Binary Execution | ✅ Working | `./build/ghswitch` runs perfectly |
+| Binary Execution | ✅ Working | `./build/ghup` runs perfectly |
 | Checksums | ✅ Working | Generated in root as `checksums.txt` |
 | Clean Script | ✅ Working | Removes artifacts, keeps `.gitkeep` |
 | GitHub Actions | ✅ Updated | All workflows use `build/` structure |
