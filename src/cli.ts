@@ -1,7 +1,8 @@
 import prompts from "prompts";
 import { loadConfig } from "./config";
-import { addAccountFlow, listAccounts, removeAccountFlow, switchForCurrentRepo, chooseAccount } from "./flows";
+import { addAccountFlow, listAccounts, removeAccountFlow, switchForCurrentRepo, chooseAccount, detectActiveAccount } from "./flows";
 import { generateSshKey } from "./ssh";
+import { getCurrentGitUser, getCurrentRemoteInfo, isGitRepo } from "./git";
 import { 
   showTitle, 
   showSection, 
@@ -10,9 +11,11 @@ import {
   showError, 
   showSeparator,
   showWarning,
+  showBox,
   colors 
 } from "./utils/ui";
 import { ensureGithubCli, manageGithubCliFlow } from "./utils/githubCli";
+import type { Account } from "./types";
 
 // Get version from package.json
 const PACKAGE_VERSION = "1.2.1";
@@ -49,6 +52,56 @@ function showHelp() {
   console.log("Documentation: https://github.com/bangunx/ghup#readme");
 }
 
+async function showRepositoryContext(accounts: Account[]) {
+  const cwd = process.cwd();
+
+  if (!(await isGitRepo(cwd))) {
+    showBox(colors.muted("Run ghup inside a Git repository to see active account details."), {
+      title: "Repository Context",
+      type: "info",
+    });
+    return;
+  }
+
+  const [activeAccount, remoteInfo, gitUser] = await Promise.all([
+    detectActiveAccount(accounts, cwd),
+    getCurrentRemoteInfo(cwd),
+    getCurrentGitUser(cwd),
+  ]);
+
+  const lines: string[] = [];
+
+  if (remoteInfo?.repoPath) {
+    lines.push(`Repository: ${colors.accent(remoteInfo.repoPath)}`);
+    const [owner] = remoteInfo.repoPath.split("/");
+    if (owner) {
+      lines.push(`Owner: ${colors.text(owner)}`);
+    }
+  } else {
+    lines.push(colors.warning("No origin remote configured"));
+  }
+
+  if (remoteInfo?.authType) {
+    lines.push(`Auth Type: ${colors.secondary(remoteInfo.authType.toUpperCase())}`);
+  }
+
+  if (gitUser) {
+    lines.push(`Git User: ${colors.text(gitUser.userName || "Not set")}`);
+    lines.push(`Git Email: ${colors.text(gitUser.userEmail || "Not set")}`);
+  }
+
+  if (activeAccount) {
+    lines.push(`Active Account: ${colors.success(activeAccount)}`);
+  } else {
+    lines.push(colors.warning("Active account could not be detected"));
+  }
+
+  showBox(lines.join("\n"), {
+    title: "Repository Context",
+    type: activeAccount ? "success" : "warning",
+  });
+}
+
 export async function main() {
   // Handle command line arguments
   const args = process.argv.slice(2);
@@ -72,6 +125,8 @@ export async function main() {
   
   while (true) {
     showSection("Main Menu");
+
+    await showRepositoryContext(cfg.accounts);
     
     const { action } = await prompts({
       type: "select",
